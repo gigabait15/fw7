@@ -1,0 +1,23 @@
+{% extends 'mailing/base.html' %}
+
+{% block content %}
+<div class="col-12">
+    <div class="row">
+        <div class="col-3">
+            <div class="card">
+                <div class="card-header">
+                    <h2>{{object.mailing_time}}</h2>
+                </div>
+                <div class="card-body">
+                    <h4>-{{ object.periodicity }}</h4>
+                    <h5>-{{ object.mailing_status }}</h5>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'mailing:mailing' %}"
+                       class="btn btn-sm btn-outline-primary">К списку рассылок</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

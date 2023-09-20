@@ -1,0 +1,32 @@
+{% extends 'mailing/base.html' %}
+{% block content %}
+<div class="container">
+    <a class="btn btn-outline-primary mb-5" href="{% url 'mailing:create_message' %}">Create mailing</a>
+    <div class="row text-center">
+        {% for object in object_list %}
+        <div class="col-3">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4>
+                        {{object.letter_subject}}
+                        {{object.letter_body}}
+                    </h4>
+                    <h5 class="my-0 font-weight-normal" style="background-color:#C2F2CA"></h5>
+                </div>
+                <div class="card-body">
+                    <div class="btn-group">
+                        <a href="{% url 'mailing:view_message' object.pk %}"
+                           class="btn btn-sm btn-outline-primary">View</a>
+                        <a href="{% url 'mailing:edit_message' object.pk %}"
+                           class="btn btn-sm btn-outline-primary">Edit</a>
+                        <a href="{% url 'mailing:delete_message' object.pk %}"
+                           class="btn btn-sm btn-outline-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,28 @@
+{% extends 'mailing/base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row text-center">
+        {% for object in object_list %}
+        <div class="col-3">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4>
+                        {{object.datatime_last_attempt}}
+                        {{object.attempt_status}}
+                        {{object.mail_server_response}}
+                    </h4>
+                    <h5 class="my-0 font-weight-normal" style="background-color:#C2F2CA"></h5>
+                </div>
+                <div class="card-body">
+                    <div class="btn-group">
+                        <a href="{% url 'mailinglog:detail_mailinglogs' object.pk %}"
+                           class="btn btn-sm btn-outline-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
